@@ -1,0 +1,26 @@
+<h1>Adding new recipe</h1>
+
+<%= form_for @recipe, url: {action: 'create'} do |form| %>
+  <p>
+    <%= form.label :name, 'Recipe name' %><br>
+    <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <%= form.label :directions, 'Directions' %><br>
+    <%= form.text_area :directions %>
+  </p>
+
+  <p>
+    <%= form.label :servings, 'Servings' %><br>
+    <%= form.text_field :servings %>
+  </p>
+
+  <p>
+    <%= form.label :total_time, 'Total time' %><br>
+    <%= form.text_field :total_time %>
+  </p>
+
+  <%= form.submit 'Create' %>
+  <%= link_to 'Back', action: 'index' %>
+<% end %>

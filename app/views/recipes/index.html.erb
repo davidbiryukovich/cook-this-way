@@ -1,0 +1,9 @@
+<h1>What do you want to cook?</h1>
+
+<p>
+  <%= link_to 'Add Recipe', action: 'new' %>
+</p>
+
+<% @recipes.each do |recipe| %>
+  <%= link_to recipe.name, action: 'show', id: recipe.id  %><br>
+<% end %>
