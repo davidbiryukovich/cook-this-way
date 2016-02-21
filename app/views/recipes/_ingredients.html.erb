@@ -1,10 +1,6 @@
 <p>
-<table id="ingredients-table" border="1">
-  <tr>
-    <th>Name</th>
-    <th>Amount</th>
-    <th>Actions</th>
-  </tr>
+Ingredients
+<table id="ingredients-table">
   <tr style="display:none;">
     <td><input disabled name="ingredients[][name]" type="text" size="30" /></td>
     <td><input disabled name="ingredients[][amount]" type="text" size="10" /></td>
@@ -17,6 +13,7 @@
         <td><%= link_to 'Delete', '#', onclick: 'return delete_table_row(this);' %></td>
       </tr>
     <% end %>
+
 </table>
 <%= link_to 'Add', '#', onclick: 'return add_table_row(this);', data: { table: '#ingredients-table' } %>
 
@@ -25,8 +22,8 @@
 <script>
   function add_table_row(sender) {
     var table = $($(sender).data('table'));
-    var tr = table.find('tr:hidden');
-    tr.clone().appendTo(table);
+    var tr = table.find('tr:hidden').clone();
+    tr.appendTo(table);
     tr.show();
     tr.find('input:disabled').removeAttr('disabled');
     return false;

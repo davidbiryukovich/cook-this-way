@@ -3,15 +3,15 @@
 
 <h1><%= @recipe.name %></h1>
 
+<p>
+  ID <%= @recipe.id %>
+  <%= link_to 'Delete', {action: 'destroy', id: @recipe.id},  method: :delete, data: {confirm: "We don't give second chances. Are you sure?"} %> |
+  <%= link_to 'Edit', {id: @recipe.id, action: 'edit'} %>
+</p>
+
 <% @recipe.recipes_ingredients.each do |recipes_ingredient| %>
   <%= recipes_ingredient.ingredient.name %> <i><%= recipes_ingredient.amount %></i><br>
 <% end %>
-
-<p>
-ID <%= @recipe.id %>
-<%= link_to 'Delete', {action: 'destroy', id: @recipe.id},  method: :delete, data: {confirm: "We don't give second chances. Are you sure?"} %> |
-<%= link_to 'Edit', {id: @recipe.id, action: 'edit'} %>
-</p>
 
 <p>
   <b>Directions:</b><br>
