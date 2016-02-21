@@ -39,6 +39,8 @@ GEM
     arel (6.0.3)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bootstrap-sass (3.2.0.2)
+      sass (~> 3.2)
     builder (3.2.2)
     byebug (8.2.2)
     coffee-rails (4.1.1)
@@ -100,6 +102,7 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (10.5.0)
     ref (1.0.5)
+    sass (3.4.21)
     spring (1.6.3)
     sprockets (3.5.2)
       concurrent-ruby (~> 1.0)
@@ -130,6 +133,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap-sass
   byebug
   jquery-rails
   mysql2
