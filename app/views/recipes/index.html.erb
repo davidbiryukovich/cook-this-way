@@ -1,8 +1,23 @@
-<div class="row">
-  <% @recipes.each do |recipe| %>
-    <div class="col-md-4 portfolio-item">
-      <%= link_to recipe.name, {id: recipe.id, action: 'show'}, {class: 'btn btn-default btn-lg btn-block'} %>
-      <%= recipe.description %>
-    </div>
-  <% end %>
-</div>
+<% if @recipes.any? %>
+
+  <div class="jumbotron">
+    <h1>Getting started</h1>
+    <p class="lead">
+      Here is a storage place for your favorite recipes. You can add, edit, print and share your secrets.
+      Bon Appetit!
+    </p>
+    <%= link_to 'Add Recipe', {action: 'new'}, {class: 'btn btn-lg btn-success first-recipe'} %>
+  </div>
+
+  <div class="row">
+    <% @recipes.each do |recipe| %>
+      <div class="col-md-4 portfolio-item">
+        <%= link_to recipe.name, {id: recipe.id, action: 'show'}, {class: 'btn btn-default btn-lg btn-block index-recipe'} %>
+        <%= recipe.description %>
+      </div>
+    <% end %>
+  </div>
+
+<% else %>
+  <%= render partial: 'no_recipes' %>
+<% end %>
