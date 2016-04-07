@@ -1,23 +1,20 @@
-<p>
-Ingredients
-<table id="ingredients-table">
+<table id="ingredients-table" class="table">
   <tr style="display:none;">
-    <td><input disabled name="ingredients[][name]" type="text" size="30" /></td>
-    <td><input disabled name="ingredients[][amount]" type="text" size="10" /></td>
-    <td><%= link_to 'Delete', '#', onclick: 'return delete_table_row(this);' %></td>
+    <td width="65%"><input disabled name="ingredients[][name]" type="text" class="form-control" placeholder="Name"/></td>
+    <td width="30%"><input disabled name="ingredients[][amount]" type="text" class="form-control" placeholder="Count" /></td>
+    <td width="5%"><%= link_to image_tag("/Images/Ingredients/cancel2.png"), '#', {onclick: 'return delete_table_row(this);'} %></td>
   </tr>
     <% @recipe.recipes_ingredients.each do |recipes_ingredient| %>
       <tr>
-        <td><input name="ingredients[][name]" type="text" size="30" value="<%= recipes_ingredient.ingredient.name %>" /></td>
-        <td><input name="ingredients[][amount]" type="text" size="10" value="<%= recipes_ingredient.amount %>" /></td>
-        <td><%= link_to 'Delete', '#', onclick: 'return delete_table_row(this);' %></td>
+        <td width="65%"><input name="ingredients[][name]" type="text" class="form-control" placeholder="Name" value="<%= recipes_ingredient.ingredient.name %>" /></td>
+        <td width="30%"><input name="ingredients[][amount]" type="text" class="form-control" placeholder="Count" value="<%= recipes_ingredient.amount %>" /></td>
+        <td width="5%"><%= link_to image_tag("/Images/Ingredients/trash2.png"), '#', {onclick: 'return delete_table_row(this);'} %></td>
+
       </tr>
     <% end %>
 
 </table>
-<%= link_to 'Add', '#', onclick: 'return add_table_row(this);', data: { table: '#ingredients-table' } %>
-
-</p>
+<%= link_to image_tag("/Images/Ingredients/add_row2.png"), '#', {onclick: 'return add_table_row(this);', data: { table: '#ingredients-table' }} %>
 
 <script>
   function add_table_row(sender) {

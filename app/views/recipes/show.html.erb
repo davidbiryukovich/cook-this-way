@@ -1,33 +1,52 @@
-<!-- Share Print -->
-<!-- Category -->
+<div class="row">
 
-<h1><%= @recipe.name %></h1>
+  <div class="col-md-10">
+    <h1>
+      <%= @recipe.name %>
+    </h1>
+  </div>
 
-<p>
-  ID <%= @recipe.id %>
-  <%= link_to 'Delete', {action: 'destroy', id: @recipe.id},  method: :delete, data: {confirm: "We don't give second chances. Are you sure?"} %> |
-  <%= link_to 'Edit', {id: @recipe.id, action: 'edit'} %>
-</p>
+  <div class="col-md-2">
+    <h1 class="btn-right">
+      <%= link_to 'Edit', {id: @recipe.id, action: 'edit'}, {class: 'btn btn-primary btn-lg'} %>
+      <%= link_to 'Delete', {action: 'destroy', id: @recipe.id}, {class: 'btn btn-danger btn-lg', method: :delete, data: {confirm: 'Are you sure?'}} %>
+    </h1>
+  </div>
 
-<% @recipe.recipes_ingredients.each do |recipes_ingredient| %>
-  <%= recipes_ingredient.ingredient.name %> <i><%= recipes_ingredient.amount %></i><br>
-<% end %>
+</div>
 
-<p>
-  <b>Directions:</b><br>
-<%= @recipe.directions %>
-</p>
+<div class="row">
 
-<p>
-  <b>Servings:</b>
-  <%= @recipe.servings %>
-</p>
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Ingredients
+          <span class="label label-default"><%= @recipe.servings %> portions</span>
+        </h3>
+      </div>
+      <div class="panel-body">
+        <% @recipe.recipes_ingredients.each do |recipes_ingredient| %>
+          <%= recipes_ingredient.ingredient.name %> - <i><%= recipes_ingredient.amount %></i>;<br>
+        <% end %>
+      </div>
+    </div>
+  </div>
 
-<p>
-  <b>Total time:</b>
-  <%= @recipe.total_time %>
-</p>
+  <div class="col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Directions
+          <span class="label label-default"><%= @recipe.total_time %> minutes</span>
+        </h3>
+      </div>
+      <div class="panel-body">
+        <%= @recipe.directions %>
+      </div>
+    </div>
+  </div>
 
-<p>
-  <%= link_to 'Back', action: 'index' %>
-</p>
+</div>
+
+<div>
+  <%= link_to 'Back', {action: 'index'}, {class: 'btn btn-default btn-lg'} %>
+</div>

@@ -1,9 +1,8 @@
-<h1>Что вы хотите приготовить?</h1>
-
-<p>
-  <%= link_to 'Add Recipe', action: 'new' %>
-</p>
-
-<% @recipes.each do |recipe| %>
-  <%= link_to recipe.name, action: 'show', id: recipe.id  %><br>
-<% end %>
+<div class="row">
+  <% @recipes.each do |recipe| %>
+    <div class="col-md-4 portfolio-item">
+      <%= link_to recipe.name, {id: recipe.id, action: 'show'}, {class: 'btn btn-default btn-lg btn-block'} %>
+      <%= recipe.description %>
+    </div>
+  <% end %>
+</div>

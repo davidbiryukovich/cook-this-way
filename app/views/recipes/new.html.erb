@@ -1,8 +1,23 @@
-<h1>New recipe</h1>
-
 <%= form_for @recipe, url: {action: 'create'} do |f| %>
+
+  <div class="row">
+
+    <div class="col-md-10">
+      <h1>
+        <%= f.text_field :name, {class: 'form-control input-lg', placeholder: 'Recipe name'} %>
+      </h1>
+    </div>
+
+    <div class="col-md-2">
+      <h1 class="btn-right">
+        <%= link_to 'Cancel', {id: @recipe.id, action: 'index'}, {class: 'btn btn-warning btn-lg'} %>
+      </h1>
+    </div>
+
+  </div>
+
+
   <%= render partial:  'form', locals: {f: f} %>
 
-  <%= f.submit 'Create' %>
-  <%= link_to 'Back', action: 'index' %>
+  <%= f.submit 'Create', {class: 'btn btn-success btn-lg'} %>
 <% end %>

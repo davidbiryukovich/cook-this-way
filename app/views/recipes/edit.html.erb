@@ -1,8 +1,23 @@
-<h1>Editing recipe <%= @recipe.name %> </h1>
-
 <%= form_for @recipe, url: {action: 'update'} do |f| %>
-  <%= render partial:  'form', locals: {f: f} %>
 
-  <%= f.submit 'Save' %>
-  <%= link_to 'Back', action: 'show', id: @recipe.id  %>
+  <div class="row">
+
+    <div class="col-md-10">
+      <h1>
+        <%= f.text_field :name, {class: 'form-control input-lg'} %>
+      </h1>
+    </div>
+
+    <div class="col-md-2">
+      <h1 class="btn-right">
+        <%= link_to 'Cancel', {id: @recipe.id, action: 'show'}, {class: 'btn btn-warning btn-lg'} %>
+      </h1>
+    </div>
+
+  </div>
+
+  <%= render partial:  'form', locals: {f: f} %>
+  <p>
+    <%= f.submit 'Save', {class: 'btn btn-success btn-lg'} %>
+  </p>
 <% end %>
