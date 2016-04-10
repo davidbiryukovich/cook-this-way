@@ -129,3 +129,8 @@ textarea {
     background-size: cover;
     border-radius: 0;
 }
+
+.list-group-item {
+    font-size: xx-large;
+    border: 0;
+}
