@@ -16,64 +16,35 @@
  */
 
 
-
+/* Логотип */
 .chicken-logo {
-    /* Логотип */
     padding-right: 10px;
 }
 
+/* Кнопки Edit, Delete, Cancel в навигации по рецептам */
 .btn-right {
-    /* Кнопки Edit, Delete, Cancel */
     float: right
 }
-
-textarea {
-    resize: vertical;
-}
-
 
 
 /* -------------------------------------------------- Bootstrap OVERRIDES */
 
 
+/* Отступы от верхней и нижней краев страницы */
 .page-content {
     margin-top: 90px;
     margin-bottom: 90px;
 }
 
+/* Общие настройки навигации */
 .navbar {
     border: none;
     background-color: #fff;
     box-shadow: 0 12px 20px -8px rgb(192, 192, 192);
- /*   box-shadow: 0px 8px 20px -8px rgba(51,122,183,0.5); */
-
-
 }
 
-/*
-
-.navbar {
-* Настройки всей шапки
-    border-radius: 0;
-    border-color: #337ab7;
-    background-color: #337ab7;
-}
-
-.navbar-default .navbar-brand {
-* Название проекта в шапке
-    color: white;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
-.navbar-collapse .navbar-nav > li > a {
-* Ссылки в шапке
-    color: white;
-}
-*/
-
+/* Настройки футера */
 .footer {
-    /* Настройки футера */
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -83,54 +54,64 @@ textarea {
     margin-top: 20px;
 }
 
+/* Настройки контента в футере */
 .footer-content {
-    /* Настройки контента в футере */
     margin-top: 15px;
     margin-bottom: 15px;
     color: #777;
 }
 
+/* Прямоугольные кнопки без обводки */
 .btn {
-    /* Прямоугольные кнопки без обводки */
     border: none;
     border-radius: 0;
 }
 
-.btn-primary,
+/* Цвет кнопки отображается только при наведении курсором */
+/*.btn-primary,
 .btn-success,
 .btn-danger,
 .btn-warning {
-    /* Цвет кнопки отображается при наведении курсором */
     color: black;
     background-color: transparent;
 }
+*/
 
-.first-recipe {
-    color: white;
-    background-color: #5cb85c;
-}
-
+/* Настройка панелей для Ingredients и Directions */
 .panel {
-    /* Настройка панелей для Ingredients и Directions */
     border: none;
     border-radius: 0;
 }
 
-.index-recipe {
-    background-color: #F5F5F5;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    margin-bottom: 30px;
+/* Содержимое панели */
+.panel-body {
+    font-size: 16px;
 }
 
+/* Настройка Jumbotron */
 .container > .jumbotron {
     color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 1);
     background-image: url(/Images/jumbotron001.jpg);
     background-size: cover;
     border-radius: 0;
 }
 
+/* Кнопки в Jumbotron */
+.jumbotron-button {
+    color: white;
+    background-color: #5cb85c;
+    text-shadow: none;
+}
+
+/* Список рецептов на главной странице */
 .list-group-item {
     font-size: xx-large;
     border: 0;
+}
+
+@media print {
+    .no-print, .no-print * {
+        display: none !important;
+    }
 }

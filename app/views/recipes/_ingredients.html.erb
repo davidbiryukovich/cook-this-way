@@ -7,7 +7,7 @@
     <%= render partial: 'ingredients_row', locals: { ingredient: ingredient } %>
   <% end %>
 </table>
-<%= link_to image_tag("/Images/Ingredients/add_row2.png"), '#', {id: 'new_ingredient_button', onclick: 'return add_table_row(this);', onkeyup: 'auto_add_table_row(this, event);', data: { table: '#ingredients-table' }} %>
+<%= link_to image_tag("/Images/Ingredients/add_row.png"), '#', {id: 'new_ingredient_button', onclick: 'return add_table_row(this);', onkeyup: 'auto_add_table_row(this, event);', data: { table: '#ingredients-table' }} %>
 
 <script>
   function add_table_row(sender) {
