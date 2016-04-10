@@ -29,9 +29,15 @@
         </h3>
       </div>
       <div class="panel-body">
-        <%= f.text_area :directions, {class: 'form-control', rows: 20} %>
+        <%= f.text_area :directions, {class: 'form-control', rows: 11} %>
       </div>
     </div>
   </div>
 
 </div>
+
+<script src="/ckeditor/ckeditor.js"></script>
+<script>
+
+    CKEDITOR.replace('recipe_directions');
+</script>

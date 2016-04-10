@@ -1,0 +1,24 @@
+/* Update the following styles in public/ckeditor/contents.css when ckeditor is replaced or this file is updated */
+
+body {
+    /* Font */
+    font-family: sans-serif, Arial, Helvetica, "Helvetica Neue";
+    font-size: 12px;
+
+    /* Text color */
+    color: #fff;
+
+    /* Remove the background color to make it transparent */
+    background-color: #fff;
+
+    margin: 20px;
+}
+
+.cke_editable
+{
+    font-size: 14px;
+    line-height: 1.6;
+
+    /* Fix for missing scrollbars with RTL texts. (#10488) */
+    word-wrap: break-word;
+}

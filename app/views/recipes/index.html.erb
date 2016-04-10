@@ -6,7 +6,7 @@
       Choose a Recipe, print it and get out of here. Cook!
       Bon Appetit!
     </p>
-    <%= link_to 'Show random Recipe', '#', {class: 'btn btn-lg btn-success first-recipe'} %>
+    <%= link_to 'Show random Recipe', {action: 'show', id: 'random'}, {class: 'btn btn-lg btn-success first-recipe'} %>
     <%= link_to 'Add new Recipe', {action: 'new'}, {class: 'btn btn-lg btn-success first-recipe'} %>
   </div>
 

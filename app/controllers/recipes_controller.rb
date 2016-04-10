@@ -5,7 +5,7 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @recipe = Recipe.find(params[:id])
+    @recipe = params[:id] == 'random' ? Recipe.order('RAND()').first : Recipe.find(params[:id])
   end
 
   def new
@@ -49,7 +49,9 @@ class RecipesController < ApplicationController
   end
 
   def ingredients_params
-    (params[:ingredients] || []).map {|ingredient| ingredient.permit(:name, :amount) }
+    (params[:ingredients] || [])
+      .map {|ingredient| ingredient.permit(:name, :amount) }
+      .select {|ingredient| ingredient[:name].present? || ingredient[:amount].present? }
   end
 
 end

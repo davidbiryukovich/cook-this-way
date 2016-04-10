@@ -1,0 +1,9 @@
+<%
+  hidden = false unless local_assigns[:hidden]
+  ingredient = nil unless local_assigns[:ingredient]
+-%>
+<tr <%= 'style="display:none;"'.html_safe if hidden %> >
+  <td width="65%"><input name="ingredients[][name]" type="text" class="form-control" placeholder="Name" value="<%= ingredient.ingredient.try(:name) if ingredient %>" /></td>
+  <td width="30%"><input name="ingredients[][amount]" type="text" class="form-control" placeholder="Count" value="<%= ingredient.amount if ingredient %>" /></td>
+  <td width="5%"><%= link_to image_tag("/Images/Ingredients/trash2.png"), '#', {tabindex: -1, onclick: 'return delete_table_row(this);'} %></td>
+</tr>
