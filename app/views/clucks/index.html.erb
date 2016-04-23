@@ -1,0 +1,49 @@
+
+
+<div class="row">
+
+  <div class="col-md-4">
+    <%= form_for @cluck, url: {action: 'create'} do |f| %>
+
+      <%= f.text_area :cluck, {class: 'form-control', rows: 3} %>
+      <% if @cluck.errors.any? %>
+        <ul>
+          <% @cluck.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      <% end %>
+      <%= f.submit 'Cluck!', {class: 'btn btn-success btn-lg'} %>
+
+    <% end %>
+  </div>
+
+  <div class="col-md-8">
+    <% @clucks.each do |cluck| %>
+
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <p><%= cluck.title %></p>
+          <p><%= cluck.cluck %></p>
+          <p><%= cluck.created_at %></p>
+          <p><%= cluck.id %></p>
+        </div>
+      </div>
+
+    <% end %>
+  </div>
+
+</div>
+
+  <script>
+    $(document).ready(function() {
+      $(window).scroll(function() {
+        if ($('.col-md-4').css('float') == 'left') {
+          var scrollTop = $(window).scrollTop();
+          $('#new_cluck').css('margin-top', scrollTop);
+        } else {
+          $('#new_cluck').css('margin-top', 0);
+        }
+      });
+    });
+  </script>

@@ -30,6 +30,16 @@
 /* -------------------------------------------------- Bootstrap OVERRIDES */
 
 
+.fixed {
+    position: fixed;
+    bottom: 0;
+
+}
+
+.panel-cluck {
+    background-color: #a0a0a0;
+}
+
 /* Отступы от верхней и нижней краев страницы */
 .page-content {
     margin-top: 90px;

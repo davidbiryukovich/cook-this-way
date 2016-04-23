@@ -8,7 +8,8 @@
 
   <title>Chicken Chef</title>
 
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
 
   <%= csrf_meta_tags %>
 </head>
@@ -31,25 +32,28 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li><%= link_to 'Home', controller: 'home', action: 'index' %></li>
-        <li><%= link_to 'Add Recipe', controller: 'recipes', action: 'new' %></li>
-        <li><a href="#contact">Link</a></li>
+        <li><a href="#"><strike>Week Menu</strike></a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            Recipes
+            <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Action 1</a></li>
-            <li><a href="#">Action 2</a></li>
-            <li><a href="#">Action 3</a></li>
+            <li><%= link_to 'My Recipes', controller: 'recipes', action: 'index' %></li>
             <li role="separator" class="divider"></li>
-            <li class="dropdown-header">Nav header</li>
-            <li><a href="#">Separated link 1</a></li>
-            <li><a href="#">Separated link 2</a></li>
+            <li class="dropdown-header">Categories:</li>
+            <li><a href="#"><strike>Салаты</strike></a></li>
+            <li><a href="#"><strike>Супы</strike></a></li>
           </ul>
         </li>
+
+
+
+        <li><%= link_to 'Clucks', controller: 'clucks', action: 'index' %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Recipes</a></li>
-        <li><a href="#">Categories</a></li>
-        <li><a href="#">Week menu<span class="sr-only">(current)</span></a></li>
+        <li><%= link_to 'Add Recipe', controller: 'recipes', action: 'new' %></li>
+        <li><%= link_to 'Cluck!', controller: 'clucks', action: 'new' %></li>
+        <li><a href="#"><strike>My Profile</strike></a></li>
       </ul>
     </div><!--/.nav-collapse -->
   </div>
@@ -66,8 +70,6 @@
       <p class="footer-content">Please, come back later.</p>
     </div>
   </footer>
-
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </body>
 </html>
 
@@ -78,6 +80,19 @@
 
 
 <!--
+
+<li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action 1</a></li>
+            <li><a href="#">Action 2</a></li>
+            <li><a href="#">Action 3</a></li>
+            <li role="separator" class="divider"></li>
+            <li class="dropdown-header">Nav header</li>
+            <li><a href="#">Separated link 1</a></li>
+            <li><a href="#">Separated link 2</a></li>
+          </ul>
+        </li>
 
 
 <nav class="navbar navbar-default navbar-fixed-top">

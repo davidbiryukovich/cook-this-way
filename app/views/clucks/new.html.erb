@@ -1,0 +1,15 @@
+<% if @cluck.errors.any? %>
+  <ul>
+    <% @cluck.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for @cluck, url: {action: 'create'} do |f| %>
+
+  <%= f.text_field :title, {class: 'form-control', placeholder: 'Title'} %>
+  <%= f.text_area :cluck, {class: 'form-control', rows: 11} %>
+  <%= f.submit 'Cluck!', {class: 'btn btn-success btn-lg'} %>
+
+<% end %>

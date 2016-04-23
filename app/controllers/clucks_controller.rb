@@ -2,6 +2,7 @@ class ClucksController < ApplicationController
 
   def index
     @clucks = Cluck.all
+    @cluck = Cluck.new
   end
 
   def show
@@ -15,9 +16,10 @@ class ClucksController < ApplicationController
   def create
     @cluck = Cluck.new(cluck_params)
     if @cluck.save
-      redirect_to action: 'show', id: @cluck.id
+      redirect_to action: 'index', id: @cluck.id
     else
-      render action: 'new'
+      @clucks = Cluck.all
+      render action: 'index'
     end
   end
 

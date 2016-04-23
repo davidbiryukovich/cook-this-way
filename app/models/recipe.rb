@@ -6,6 +6,8 @@ class Recipe < ActiveRecord::Base
   validates :directions, :servings, :total_time, presence: true
   validates :servings, :total_time, numericality: { only_integer: true, greater_than: 0 }
 
+  default_scope { order(:name) }
+
   def ingredients_attributes=(values)
     values = values.map do |value|
       ingredient = Ingredient.where(name: value[:name]).first_or_create
