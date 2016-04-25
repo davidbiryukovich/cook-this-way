@@ -124,3 +124,21 @@
         display: none !important;
     }
 }
+
+.action-row {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.add-category a {
+    color: #adadad !important;
+}
+
+.select-category {
+    margin-top: 20px;
+}
+
+.category-label {
+    color: #adadad;
+    font-size: 16px;
+}

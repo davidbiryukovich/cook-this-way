@@ -1,0 +1,48 @@
+<%= form_for @category, url: {action: 'update'} do |f| %>
+
+  <div class="row">
+    <div class="col-md-9">
+      <h1>
+        <%= f.text_field :name, {class: 'form-control input-lg', placeholder: 'Category name'} %>
+      </h1>
+    </div>
+
+    <div class="col-md-3">
+      <h1 class="btn-right">
+        <%= link_to 'Back', {action: 'index'}, {class: 'btn btn-default btn-lg'} %>
+        <%= f.submit 'Save', {class: 'btn btn-success btn-lg'} %>
+      </h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Description</h3>
+        </div>
+        <div class="panel-body">
+          <%= f.text_area :description, {class: 'form-control', rows: 11} %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-8">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Recipes</h3>
+        </div>
+        <div class="panel-body">
+          Здесь будет список рецептов для новой категории
+          <%=  %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row action-row">
+    <%= f.submit 'Save', {class: 'btn btn-success btn-lg'} %>
+    <%= link_to 'Back', {action: 'index'}, {class: 'btn btn-default btn-lg'} %>
+  </div>
+
+<% end %>

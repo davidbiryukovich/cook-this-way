@@ -1,24 +1,29 @@
 <%= form_for @recipe, url: {action: 'create'} do |f| %>
 
   <div class="row">
-
-    <div class="col-md-10">
+    <div class="col-md-7">
       <h1>
         <%= f.text_field :name, {class: 'form-control input-lg', placeholder: 'Recipe name'} %>
       </h1>
     </div>
 
     <div class="col-md-2">
-      <h1 class="btn-right">
-        <%= link_to 'Cancel', {id: @recipe.id, action: 'index'}, {class: 'btn btn-warning btn-lg'} %>
-      </h1>
+      <%= f.select :category_id, options_from_collection_for_select(@categories, 'id', 'name'), {}, {class: 'form-control input-lg select-category'} %>
     </div>
 
+    <div class="col-md-3">
+      <h1 class="btn-right">
+        <%= link_to 'Cancel', {id: @recipe.id, action: 'index'}, {class: 'btn btn-warning btn-lg'} %>
+        <%= f.submit 'Create', {class: 'btn btn-success btn-lg'} %>
+      </h1>
+    </div>
   </div>
-
 
   <%= render partial:  'form', locals: {f: f} %>
 
-  <%= f.submit 'Create', {class: 'btn btn-success btn-lg'} %>
-  <%= link_to 'Back', {action: 'index'}, {class: 'btn btn-default btn-lg'} %>
+  <div class="row action-row">
+    <%= f.submit 'Create', {class: 'btn btn-success btn-lg'} %>
+    <%= link_to 'Back', {action: 'index'}, {class: 'btn btn-default btn-lg'} %>
+  </div>
+
 <% end %>
