@@ -78,14 +78,13 @@
 }
 
 /* Цвет кнопки отображается только при наведении курсором */
-/*.btn-primary,
+.btn-primary,
 .btn-success,
 .btn-danger,
 .btn-warning {
     color: black;
     background-color: transparent;
 }
-*/
 
 /* Настройка панелей для Ingredients и Directions */
 .panel {

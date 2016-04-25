@@ -2,15 +2,17 @@
 
   <div class="row">
 
-    <div class="col-md-10">
+    <div class="col-md-8">
       <h1>
         <%= f.text_field :name, {class: 'form-control input-lg'} %>
       </h1>
     </div>
 
-    <div class="col-md-2">
+    <div class="col-md-4">
       <h1 class="btn-right">
-        <%= link_to 'Cancel', {id: @recipe.id, action: 'show'}, {class: 'btn btn-warning btn-lg'} %>
+        <%= link_to 'Delete', {action: 'destroy', id: @recipe.id}, {class: 'btn btn-danger btn-lg no-print', method: :delete, data: {confirm: 'Are you sure?'}} %>
+        <%= link_to 'Cancel', {action: 'show', id: @recipe.id}, {class: 'btn btn-warning btn-lg'} %>
+        <%= f.submit 'Save', {class: 'btn btn-success btn-lg'} %>
       </h1>
     </div>
 
@@ -19,5 +21,7 @@
   <%= render partial:  'form', locals: {f: f} %>
   <p>
     <%= f.submit 'Save', {class: 'btn btn-success btn-lg'} %>
+    <%= link_to 'Cancel', {action: 'show', id: @recipe.id}, {class: 'btn btn-warning btn-lg'} %>
+    <%= link_to 'Delete', {action: 'destroy', id: @recipe.id}, {class: 'btn btn-danger btn-lg no-print', method: :delete, data: {confirm: 'Are you sure?'}} %>
   </p>
 <% end %>
