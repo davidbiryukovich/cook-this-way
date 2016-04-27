@@ -42,6 +42,8 @@
           <ul class="dropdown-menu">
             <li class="disabled"><%= link_to 'My Recipes', '#' %></li>
             <li><%= link_to 'All Recipes', controller: 'recipes', action: 'index' %></li>
+            <li><%= link_to 'Bin', controller: 'recipes', action: 'bin' %></li>
+
             <li role="separator" class="divider"></li>
             <% @categories.each do |category| %>
               <li><%= link_to category.name, {controller: 'categories', action: 'show', id: category.id}%></li>

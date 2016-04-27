@@ -115,7 +115,8 @@
 
 /* Список рецептов на главной странице */
 .list-group-item {
-    font-size: xx-large;
+    font-size: 34px;
+    text-align: center;
     border: 0;
 }
 
@@ -139,6 +140,11 @@
 }
 
 .category-label {
-    color: #adadad;
-    font-size: 16px;
+    font-size: 14px;
+}
+
+img.empty-bin {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }

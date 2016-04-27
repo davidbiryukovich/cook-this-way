@@ -1,7 +1,17 @@
 Rails.application.routes.draw do
 
   resources :categories
-  resources :recipes
+
+  resources :recipes do
+    member do
+      post 'restore'
+    end
+
+    collection do
+      get 'bin'
+    end
+  end
+
   resources :clucks
 
   # The priority is based upon order of creation: first created -> highest priority.

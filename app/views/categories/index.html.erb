@@ -1,4 +1,20 @@
-  <div class="row">
+<div class="row">
+  <div class="col-md-8">
+    <h1 class="my-nav-top">
+      Categories
+    </h1>
+  </div>
+
+  <div class="col-md-4">
+    <h1 class="btn-right">
+      <%= link_to 'Back', {controller: 'home', action: 'index'}, {class: 'btn btn-default btn-lg no-print'} %>
+    </h1>
+  </div>
+</div>
+
+
+
+<div class="row">
     <div class="col-md-12">
       <ul class="list-group">
         <% @categories.each do |category| %>
@@ -7,3 +23,7 @@
       </ul>
     </div>
   </div>
+
+<div class="row action-row">
+  <%= link_to 'Back', {controller: 'home', action: 'index'}, {class: 'btn btn-default btn-lg no-print'} %>
+</div>

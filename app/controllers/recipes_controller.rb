@@ -5,7 +5,7 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @recipe = params[:id] == 'random' ? Recipe.order('RAND()').first : Recipe.find(params[:id])
+    @recipe = params[:id] == 'random' ? Recipe.order('RAND()').first : Recipe.unscoped.find(params[:id])
   end
 
   def new
@@ -38,9 +38,29 @@ class RecipesController < ApplicationController
   end
 
   def destroy
-    @recipe = Recipe.destroy(params[:id])
-    redirect_to action: 'index'
+    @recipe = Recipe.find(params[:id])
+    @recipe.active = false
+    if @recipe.save
+      redirect_to action: 'index'
+    else
+      redirect_to 'show'
+    end
   end
+
+  def bin
+    @recipes = Recipe.unscoped.where(active: false).all
+  end
+
+  def restore
+    @recipe = Recipe.unscoped.find(params[:id])
+    @recipe.active = true
+    if @recipe.save
+      redirect_to action: 'bin'
+    else
+      redirect_to 'show'
+    end
+  end
+
 
   private
 

@@ -7,7 +7,7 @@ class Recipe < ActiveRecord::Base
   validates :directions, :servings, :total_time, presence: true
   validates :servings, :total_time, numericality: { only_integer: true, greater_than: 0 }
 
-  default_scope { order(:name) }
+  default_scope { where(active: true).order(:name) }
 
   def ingredients_attributes=(values)
     values = values.map do |value|

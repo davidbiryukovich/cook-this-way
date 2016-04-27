@@ -3,9 +3,9 @@
     <h1>
       <%= @recipe.name %>
         <% if @recipe.category_id  %>
-          <%= link_to @recipe.category.name, {controller: 'categories', action: 'show', id: @recipe.category_id}, {class: 'btn-link category-label'} %>
+          <%= link_to @recipe.category.name, {controller: 'categories', action: 'show', id: @recipe.category_id}, {class: 'label label-info category-label'} %>
         <% else %>
-          <span class="category-label">No Category</span>
+          <span class="label label-warning category-label">No Category</span>
 
         <% end %>
     </h1>
@@ -13,10 +13,15 @@
 
   <div class="col-md-4">
     <h1 class="btn-right">
-      <%= link_to 'Delete', {action: 'destroy', id: @recipe.id}, {class: 'btn btn-danger btn-lg no-print', method: :delete, data: {confirm: 'Are you sure?'}} %>
-      <%= link_to 'Edit', {id: @recipe.id, action: 'edit'}, {class: 'btn btn-primary btn-lg no-print'} %>
-      <%= link_to 'Back', {action: 'index'}, {class: 'btn btn-default btn-lg no-print'} %>
-    </h1>
+      <% if @recipe.active %>
+        <%= link_to 'Delete', {action: 'destroy', id: @recipe.id}, {class: 'btn btn-danger btn-lg no-print', method: :delete, data: {confirm: 'Recipe will be added to recycle bin!'}} %>
+        <%= link_to 'Edit', {id: @recipe.id, action: 'edit'}, {class: 'btn btn-primary btn-lg no-print'} %>
+        <%= link_to 'Back', {action: 'index'}, {class: 'btn btn-default btn-lg no-print'} %>
+      <% else %>
+        <%= link_to 'Back', {action: 'bin'}, {class: 'btn btn-default btn-lg no-print'} %>
+        <%= link_to 'Restore', {action: 'restore', id: @recipe.id}, {class: 'btn btn-danger btn-lg no-print', method: :post, data: {confirm: 'Are you sure?'}} %>
+    <% end %>
+        </h1>
   </div>
 </div>
 
@@ -51,8 +56,13 @@
 </div>
 
 <div class="row action-row">
-  <%= link_to 'Back', {action: 'index'}, {class: 'btn btn-default btn-lg no-print'} %>
-  <%= link_to 'Edit', {id: @recipe.id, action: 'edit'}, {class: 'btn btn-primary btn-lg no-print'} %>
-  <%= link_to 'Delete', {action: 'destroy', id: @recipe.id}, {class: 'btn btn-danger btn-lg no-print', method: :delete, data: {confirm: 'Are you sure?'}} %>
-  <%= link_to image_tag("/Images/printer-sm.png"), '#', {onclick: 'window.print();return false;', class: 'btn-right no-print'} %>
+  <% if @recipe.active %>
+    <%= link_to 'Back', {action: 'index'}, {class: 'btn btn-default btn-lg no-print'} %>
+    <%= link_to 'Edit', {id: @recipe.id, action: 'edit'}, {class: 'btn btn-primary btn-lg no-print'} %>
+    <%= link_to 'Delete', {action: 'destroy', id: @recipe.id}, {class: 'btn btn-danger btn-lg no-print', method: :delete, data: {confirm: 'Recipe will be added to recycle bin!'}} %>
+    <%= link_to image_tag("/Images/printer-sm.png"), '#', {onclick: 'window.print();return false;', class: 'btn-right no-print'} %>
+  <% else %>
+    <%= link_to 'Restore', {action: 'restore', id: @recipe.id}, {class: 'btn btn-danger btn-lg no-print', method: :post, data: {confirm: 'Are you sure?'}} %>
+    <%= link_to 'Back', {action: 'bin'}, {class: 'btn btn-default btn-lg no-print'} %>
+<% end %>
 </div>
