@@ -2,14 +2,12 @@
   <div class="col-md-8">
     <h1>
       <%= @recipe.name %>
-      <small>
         <% if @recipe.category_id  %>
-          (<%= Category.where(id: @recipe.category_id).first.name %>)
+          <%= link_to @recipe.category.name, {controller: 'categories', action: 'show', id: @recipe.category_id}, {class: 'btn-link category-label'} %>
         <% else %>
-          <span class="no-category">(No Category)</span>
+          <span class="category-label">No Category</span>
 
         <% end %>
-      </small>
     </h1>
   </div>
 

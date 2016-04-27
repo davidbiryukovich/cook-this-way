@@ -1,7 +1,7 @@
 class Recipe < ActiveRecord::Base
 
   has_many :recipes_ingredients, autosave: true
-  belongs_to :categories
+  belongs_to :category
 
   validates :name, presence: true, uniqueness: true
   validates :directions, :servings, :total_time, presence: true

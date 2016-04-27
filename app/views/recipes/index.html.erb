@@ -15,7 +15,8 @@
       <ul class="list-group">
         <% @recipes.each do |recipe| %>
           <%= link_to  "#{  if recipe.category_id
-                              recipe.name + ' ' + Category.where(id: recipe.category_id).first.name
+                              recipe.name + ' ' + '<span class="category-label">' +
+                                  Category.where(id: recipe.category_id).first.name + '</span>'
                             else
                               recipe.name + ' ' + '<span class="category-label">No Category</span>'
                             end
