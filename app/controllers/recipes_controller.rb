@@ -61,6 +61,10 @@ class RecipesController < ApplicationController
     end
   end
 
+  def ingredients
+    records = Ingredient.where('name like ?', "%#{params[:query]}%")
+    render json: records.pluck(:name)
+  end
 
   private
 

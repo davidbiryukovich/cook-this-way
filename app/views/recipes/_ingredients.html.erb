@@ -1,3 +1,8 @@
+<%= stylesheet_link_tag 'ingredients_typeahead' %>
+<%= javascript_include_tag 'typeahead.js/typeahead.bundle.min' %>
+<%= javascript_include_tag 'typeahead.js/bloodhound.min' %>
+<%= javascript_include_tag 'ingredients_typeahead' %>
+
 <table id="ingredients-table" class="table">
   <%= render partial: 'ingredients_row', locals: { hidden: true } %>
   <% 3.times do %>
@@ -8,25 +13,3 @@
   <% end %>
 </table>
 <%= link_to image_tag("/Images/Ingredients/add_row.png"), '#', {id: 'new_ingredient_button', onclick: 'return add_table_row(this);', onkeyup: 'auto_add_table_row(this, event);', data: { table: '#ingredients-table' }} %>
-
-<script>
-  function add_table_row(sender) {
-    var table = $($(sender).data('table'));
-    var tr = table.find('tr:hidden').clone();
-    tr.appendTo(table);
-    tr.show();
-    tr.find('input:disabled').removeAttr('disabled');
-    tr.find('input:first').focus();
-    return false;
-  }
-
-  function delete_table_row(sender) {
-    $(sender).parent().parent().remove();
-    return false;
-  }
-
-  function auto_add_table_row(sender, event) {
-    if (event.keyCode == 9)
-      add_table_row($(sender));
-  }
-</script>

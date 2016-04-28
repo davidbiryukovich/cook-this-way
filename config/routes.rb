@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   resources :categories
 
+  get 'recipes/ingredients/:query.json' => 'recipes#ingredients'
+
   resources :recipes do
     member do
       post 'restore'
